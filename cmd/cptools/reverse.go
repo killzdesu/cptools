@@ -20,4 +20,5 @@ var reverseCmd = &cobra.Command{
 
 func init() {
     rootCmd.AddCommand(reverseCmd)
+
 }

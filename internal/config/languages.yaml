@@ -1,0 +1,49 @@
+# Default Language Configurations for cptools
+# Users can override these settings by creating ~/.config/cptools/languages.yaml
+
+languages:
+  cpp:
+    name: "C++"
+    extension: "cpp"
+    compile: "g++ -std=c++17 -O2 -Wall {{filename}} -o {{output}}"
+    run: "./{{output}}"
+    template: "template/cpp.cpp"
+    compiled: true
+    
+  go:
+    name: "Go"
+    extension: "go"
+    compile: "go build -o {{output}} {{filename}}"
+    run: "./{{output}}"
+    template: "template/go.go"
+    compiled: true
+    
+  python:
+    name: "Python"
+    extension: "py"
+    compile: ""
+    run: "python3 {{filename}}"
+    template: "template/python.py"
+    compiled: false
+    
+  javascript:
+    name: "JavaScript"
+    extension: "js"
+    compile: ""
+    run: "node {{filename}}"
+    template: "template/javascript.js"
+    compiled: false
+    
+  rust:
+    name: "Rust"
+    extension: "rs"
+    compile: "rustc -O {{filename}} -o {{output}}"
+    run: "./{{output}}"
+    template: "template/rust.rs"
+    compiled: true
+
+# Variable substitutions available:
+# {{filename}} - Full filename with extension (e.g., solution.cpp)
+# {{basename}} - Filename without extension (e.g., solution)
+# {{output}}   - Output executable name (defaults to basename on Unix, basename.exe on Windows)
+# {{ext}}      - File extension (e.g., cpp)
